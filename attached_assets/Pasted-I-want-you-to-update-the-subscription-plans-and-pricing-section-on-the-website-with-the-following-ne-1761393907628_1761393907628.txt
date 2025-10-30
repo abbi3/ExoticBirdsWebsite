@@ -1,0 +1,82 @@
+I want you to update the subscription plans and pricing section on the website with the following new pricing, discount details, and an interactive Instagram button for contacting the Fancy Feathers admin.
+
+Subscription Plans (Updated Pricing)
+
+1️⃣ Monthly Plan
+
+Original Price: ₹2,750/-
+
+20% OFF → ₹2,200/- per month
+
+Includes:
+
+2 Expert Consultations
+
+Regular Bird Health & Care Guidance
+
+Exclusive Avian Vet Tips and Behavioral Updates
+
+2️⃣ 6-Month Plan
+
+Original Price: ₹16,500/-
+
+25% OFF → ₹12,375/- for 6 months
+
+Includes:
+
+18 Expert Consultations
+
+Priority Scheduling for Health Reviews
+
+Nutrition & Enrichment Guidance for Birds
+
+3️⃣ Annual Plan (12 Months)
+
+Original Price: ₹33,000/-
+
+30% OFF → ₹23,100/- per year
+
+Includes:
+
+48 Consultations
+
+Full-Year Health Tracking and Reports
+
+Seasonal Care Tips and Wellness Recommendations
+
+Promotional Section
+
+✨ Special Offer for Fancy Feathers Followers! ✨
+“Followers of Fancy Feathers India get an additional exclusive discount!
+Ask the Fancy Feathers Admin to share a personal discount coupon with you.”
+
+Below this message, add an Instagram contact button:
+
+🔘 Instagram Button Design Requirements:
+
+Text: “Contact Admin on Instagram”
+
+Icon: Use the Instagram logo icon before the text
+
+Color: Gradient in pink → purple → orange (Instagram theme)
+
+Rounded button style with hover animation (slight scale-up + shadow)
+
+When the user clicks the button, redirect them to:
+👉 https://www.instagram.com/fancy_feathers_india/
+
+(Open in a new tab)
+
+✅ Builder Instructions:
+
+Display all three subscription plans in a responsive 3-column layout (stack vertically on mobile).
+
+Use modern card design with soft shadows, rounded corners, and readable typography.
+
+Show both original and discounted prices clearly (use strikethrough on the original price).
+
+Highlight the Annual Plan card with a small ribbon badge saying “Best Value”.
+
+The promotional section (with the Instagram button) should appear below the pricing table in a visually attractive banner with light background and centered text.
+
+Ensure the Instagram button is prominent and visually matches the theme of Fancy Feathers.

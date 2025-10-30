@@ -1,0 +1,161 @@
+I want you to extend my existing website (which already includes subscription plans, discount coupons, admin dashboard, and user login functionality) by adding mobile number verification using Twilio SMS OTP integration.
+
+Twilio is already integrated under Replit → Integrations, and the Twilio API key and secret are available as environment variables.
+Use those environment variables securely for all Twilio-related calls.
+
+🔹 OTP VERIFICATION FLOW USING TWILIO
+
+Add a secure 4-digit OTP verification step before a user can create their account.
+
+Step 1: User enters mobile number
+
+Prompt the user to enter their mobile number when starting the account creation process.
+
+Validate that the number matches the one used during subscription.
+
+If it doesn’t match, show the error message:
+❌ “The mobile number must match the one used during subscription.”
+
+Step 2: Send OTP via Twilio
+
+Generate a random 4-digit OTP (for example: 2714).
+
+Send the OTP using Twilio SMS API to the entered mobile number.
+
+Use the Twilio credentials (API key and secret) from the Replit integrations for authentication.
+
+Display success message:
+✅ “An OTP has been sent to your mobile number. Please enter it below to verify.”
+
+Include a ‘Resend OTP’ button that becomes active after 30 seconds.
+
+Example SMS format:
+
+Fancy Feathers: Your verification code is 2714. 
+It will expire in 5 minutes.
+
+Step 3: User enters OTP
+
+Display a field where the user can enter the 4-digit OTP.
+
+Verify the OTP server-side:
+
+If the OTP is correct and valid → mark the user as verified (is_mobile_verified = true).
+
+If invalid or expired → show error message:
+❌ “Invalid or expired OTP. Please try again.”
+
+🔹 ACCOUNT CREATION AFTER OTP SUCCESS
+
+Once the mobile number is verified:
+
+Automatically set the verified phone number as the User ID (non-editable).
+
+Prompt the user to create and confirm a password.
+
+Password must have:
+
+Minimum 8 characters
+
+At least 1 capital letter
+
+1 number
+
+1 special character
+
+Add a Show/Hide Password toggle for better UX.
+
+After successful account creation, display:
+✅ “Your account has been created successfully. You can now log in using your verified mobile number and password.”
+
+🔹 USER LOGIN FLOW
+
+Only users whose mobile numbers are OTP-verified can log in.
+
+On login:
+
+Fields: Mobile Number and Password
+
+On success → redirect to the User Dashboard.
+
+On invalid credentials → show:
+❌ “Invalid mobile number or password.”
+
+If user is not verified → show:
+⚠️ “Please verify your mobile number before logging in.”
+
+🔹 ADMIN DASHBOARD INTEGRATION
+
+In the Admin Dashboard, add the following under each user record:
+
+Mobile Verified: ✅ Yes / ❌ No
+
+Verification Date & Time
+
+Add a filter option for “Show Verified / Unverified Users”
+
+Display the Twilio Message SID and verification timestamp for tracking and audit.
+
+🔹 SECURITY & VALIDATION
+
+OTP expires after 5 minutes.
+
+Each Resend OTP replaces the previous one.
+
+Encrypt OTP before storing it in the database.
+
+Limit OTP validation attempts to 3 per 10 minutes per mobile number.
+
+Add 30-second cooldown before allowing OTP resend.
+
+All Twilio API calls must be made server-side using environment variables from Replit integrations.
+
+Never expose Twilio API key or secret on the frontend or client-side code.
+
+🔹 USER EXPERIENCE FLOW SUMMARY
+
+✅ Full Flow Overview:
+
+User enters mobile → receives 4-digit OTP via Twilio SMS.
+
+User enters OTP → verified successfully.
+
+User sets password → account created.
+
+User logs in → views their subscription dashboard.
+
+✅ UI Messages:
+
+“Enter your mobile number to receive OTP.”
+
+“OTP sent successfully via SMS!”
+
+“OTP verified successfully!”
+
+“Your account has been created successfully.”
+
+✅ Error Messages:
+
+“Invalid or expired OTP.”
+
+“Please verify your mobile number before creating an account.”
+
+“Maximum OTP attempts reached. Try again later.”
+
+🔹 ADMIN VISIBILITY
+
+In the admin panel:
+
+Display verification status (Verified / Not Verified).
+
+Filter by verification status.
+
+Show verification time and Twilio message SID for auditing.
+
+🔹 FUTURE EXTENSIONS (Optional)
+
+Add WhatsApp OTP verification via Twilio WhatsApp API.
+
+Add “Forgot Password” via Twilio OTP reset.
+
+Add Two-Factor Authentication (2FA) using Twilio Verify API.

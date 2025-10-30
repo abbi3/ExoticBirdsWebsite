@@ -1,0 +1,235 @@
+Add a full Appointment Booking Module to the existing Fancy Feathers website.
+This module will allow users to book doctor consultations for exotic birds, based on the number of consultations available in their subscription plan.
+
+The system must display available slots dynamically, prevent double bookings, and reflect all confirmed appointments in the Admin Dashboard.
+
+User Experience and Flow
+
+Access Point
+
+Add an Appointment / Calendar icon on the user dashboard and navigation bar.
+
+When clicked, open the Appointment Booking Page or Modal.
+
+Check Subscription Allowance
+
+On opening the booking screen, verify the user’s remaining consultation credits from their active subscription.
+
+If no credits remain, display:
+
+“You have no consultations left. Please purchase a top-up to continue.”
+
+Include a button linking to the top-up page.
+
+If credits are available, allow the user to proceed.
+
+Calendar View
+
+Display an interactive calendar view where users can select an appointment date.
+
+Disable all past dates and holidays or blocked days.
+
+Default timezone: Asia/Kolkata (IST).
+
+Once a date is selected, show available time slots between 10:00 AM and 5:00 PM.
+
+Time Slots
+
+Slot duration: 30 minutes (default; admin configurable).
+
+Display slots such as: 10:00, 10:30, 11:00, 11:30, etc. up to 16:30.
+
+If a slot is already booked by another user, mark it as Unavailable (gray or crossed out).
+
+Only available slots should be clickable.
+
+Booking Form
+
+Once the user selects a time slot, show a short booking confirmation form:
+
+Confirmed User Name (auto-filled)
+
+Phone Number (auto-filled)
+
+Select Bird (dropdown — user’s existing birds)
+
+Add new bird (optional inline form)
+
+Description / Symptoms (required, multi-line text box)
+
+Upload Image (optional)
+
+Confirm Booking Button
+
+Booking Confirmation
+
+On successful booking:
+
+Show confirmation modal with:
+
+Appointment Date
+
+Time Slot
+
+Bird Name
+
+Consultation Credit Used
+
+Doctor Name (optional placeholder if single vet)
+
+Display confirmation message:
+✅ “Your appointment is confirmed! A confirmation has been sent to your WhatsApp and email.”
+
+Offer to:
+
+Add to Google Calendar (.ics file)
+
+Reschedule
+
+Cancel
+
+Contact Support via WhatsApp
+
+Consultation Credit Deduction
+
+Once a booking is confirmed, deduct one consultation credit from the user’s available balance.
+
+If the appointment is canceled (according to rules below), restore the credit.
+
+Admin Dashboard Integration
+
+Admin Appointment Calendar
+
+Display a calendar view showing all booked appointments.
+
+Include filters for:
+
+Date
+
+Plan type (monthly / 6 months / annual)
+
+Status (Booked / Completed / Canceled / Missed)
+
+Each appointment should show:
+
+User Name
+
+Contact Number
+
+Bird Name
+
+Date & Time
+
+Status
+
+Notes (if added)
+
+Admin Controls
+
+Admin can:
+
+Block certain slots or full days (leave, holidays).
+
+Create manual bookings for users.
+
+Cancel or reschedule appointments.
+
+Mark appointments as “Completed” or “Missed.”
+
+Add admin notes to appointments.
+
+Slot Management
+
+Admin can configure:
+
+Slot duration (default 30 minutes).
+
+Buffer time between slots (e.g., 10 minutes).
+
+Working hours (default 10:00 AM to 5:00 PM).
+
+Blocked slots should appear grayed out in both Admin and User calendars.
+
+Notifications
+
+Automatically send appointment notifications and reminders via Twilio SMS / WhatsApp (already integrated).
+
+Reminder schedule:
+
+24 hours before appointment
+
+1 hour before appointment
+
+Daily Overview
+
+Admin receives a daily summary showing next-day appointments and any new bookings made in the last 24 hours.
+
+Business Rules
+
+Slot Conflict Prevention
+
+If a time slot is already booked by another user, mark it as unavailable instantly for all users.
+
+Ensure bookings are locked at confirmation to prevent overlap.
+
+Cancellation & Reschedule Policy
+
+Free cancellation or reschedule allowed up to 12 hours before appointment time.
+
+If canceled before this window → consultation credit is restored.
+
+If canceled within 12 hours → credit is consumed.
+
+Admin can override and manually restore credits when necessary.
+
+Multi-Bird Sessions
+
+Each appointment consumes one consultation credit.
+
+For multiple birds, user must book separate appointments (unless admin manually schedules combined session).
+
+Automatic Increment
+
+When a new appointment is confirmed, increment “Active Appointments” count (for analytics or admin dashboard stats).
+
+Timezone & Format
+
+Use 24-hour format in backend and local timezone display for users (IST).
+
+Store times internally in UTC.
+
+User Interface Design Guidelines
+
+Appointment Icon: Calendar icon or “Book Appointment” button visible on the user dashboard.
+
+Calendar Style: Modern, responsive, month/week/day view toggle.
+
+Slot Indicators:
+
+Green = Available
+
+Gray = Blocked
+
+Red = Booked
+
+Yellow = Reserved
+
+Animations: Smooth transitions when switching between dates or confirming bookings.
+
+Confirmation Toast: “Appointment confirmed successfully! Your consultation slot has been booked.”
+
+Cancellation Toast: “Your appointment has been canceled. Credit restored to your subscription.”
+
+Mobile Friendly: Slot grid should scroll horizontally on smaller screens.
+
+Additional Details
+
+All appointment data should be visible and editable by admin in the admin dashboard.
+
+Appointment confirmation and reminder notifications should integrate with existing Twilio setup (SMS/WhatsApp).
+
+Allow the user to download or share their booking confirmation easily (PDF or calendar link).
+
+Display a small line in the booking form:
+
+“Appointments are subject to doctor availability. Please arrive on time for your session.”

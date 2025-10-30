@@ -1,0 +1,170 @@
+Add a small, attractive social-proof widget to the subscription / broadcast subscription pages that displays two metrics:
+
+Active Users Right Now (shared value shown to all users at the same moment)
+
+Active Subscriptions (persistent, always-increasing count)
+
+Visual requirements
+
+Show both metrics prominently near the subscription CTA (above or beside “Subscribe” button).
+
+Use clean, modern metric cards with:
+
+Large numeric counter (animated count-up on load)
+
+Short label (e.g., “Active users right now”, “Active subscriptions”)
+
+Small sub-text / tooltip: “Approximate numbers updated in real-time.” (This provides minimal transparency and avoids outright deception.)
+
+Make the cards responsive and visually appealing: rounded corners, soft shadow, subtle gradient background, and micro-animations (pulse or bounce) when numbers update.
+
+Provide an Admin link (only visible to admin) to manually set/override seed values or pause auto increments.
+
+Behavior / Rules (exact logic to implement)
+
+Active Users (live, shared value)
+
+This number must be a single global value visible to every visitor at the same time (i.e., not per-client random).
+
+Value must always be an integer < 20 (for example in the range 5–19).
+
+Generation / refresh rules:
+
+At system start (or when the cache has expired), generate a random integer between 5 and 19 (inclusive) and store it in a fast shared cache (Redis or in-memory store with persistence).
+
+Store this value in cache key site:active_users with a TTL of 60 seconds (configurable).
+
+All visitors read the value from this cache and see the same number for that TTL period.
+
+On cache expiry, generate a new random integer in range 5–19 and repopulate cache for another TTL window.
+
+Optional: If you want smaller fluctuations during busy times, allow an admin-configurable min/max for the range.
+
+Real event ties:
+
+When a real user logs in and becomes actively engaged (optional integration), you may optionally increment or keep the value stable — but do not remove the cached shared behavior. Prefer to keep it strictly cache-driven so all users see the same number for a given window.
+
+Endpoint:
+
+GET /metrics/active-users → returns { value: <int>, expires_in_seconds: <int> }.
+
+Active Subscriptions (persistent, incremental)
+
+This is a persistent counter stored in the database (seed value must be > active users initial value).
+
+Initialization:
+
+Seed active_subscriptions with a sensible starting integer (for example 100 or admin provided). The seed must be strictly greater than the current active users value when first published.
+
+Expose an admin setting to set the seed.
+
+Increment rules:
+
+Real subscription events: Whenever a real subscription is completed (successful payment/100% coupon handled flow), increment active_subscriptions by +1 immediately.
+
+Organic daily growth: To ensure the number grows over time, run a scheduled job (cron) once per day that increments the counter by a small random amount: random(0..3). This ensures the number is greater the next day if no new paid subscriptions happen.
+
+Optional micro increments: Optionally, you can increment small random amounts (0..1) every few hours; keep increments conservative to avoid suspicious jumps.
+
+Persistence & safety:
+
+Store the count in DB (e.g., settings.metrics.active_subscriptions) and update an audit log whenever it changes with metadata { by: 'system'|'admin'|'payment', reason, delta, timestamp }.
+
+Prevent race conditions: update using atomic DB increment (e.g., UPDATE ... SET value = value + 1 or INCR in Redis with DB sync).
+
+Endpoint:
+
+GET /metrics/active-subscriptions → returns { value: <int>, last_updated: <ISO timestamp> }
+
+POST /metrics/active-subscriptions/increment → increments by 1 (called by payment-success flow)
+
+POST /admin/metrics/active-subscriptions → admin override to set explicit value
+
+UI behavior:
+
+When a user completes a subscription successfully, increment the displayed active_subscriptions number instantly (optimistic update) and persist via backend increment endpoint.
+
+Real-time UX & data flow
+
+For shared live feel, implement simple polling or Server-Sent Events:
+
+Poll GET /metrics/active-users every 60s to update the card when TTL expires.
+
+Poll GET /metrics/active-subscriptions every 30–60s OR use SSE/WebSocket to push updates when the server increments.
+
+When active_subscriptions is incremented by the payment-success webhook, broadcast an update to connected clients (SSE/WebSocket) so all viewers see live increments.
+
+Admin controls
+
+Admin dashboard must include a small panel to:
+
+View current active_users range and TTL.
+
+Set active_subscriptions seed or override value.
+
+Pause the daily auto-increment (for maintenance).
+
+View audit log of subscription counter changes.
+
+All admin actions are logged with admin_id, action, old_value, new_value, reason, timestamp.
+
+Data model suggestion (minimal)
+
+{
+  "metrics": {
+    "active_users": {
+      "value": 12,
+      "expires_at": "2025-10-25T10:12:00Z"
+    },
+    "active_subscriptions": {
+      "value": 127,
+      "last_updated": "2025-10-25T09:45:00Z"
+    }
+  },
+  "audit_log": [
+    { "metric": "active_subscriptions", "old": 126, "new": 127, "by": "payment", "reason": "sub_paid", "at": "..." }
+  ]
+}
+
+
+APIs to add (summary)
+
+GET /metrics/active-users
+
+GET /metrics/active-subscriptions
+
+POST /metrics/active-subscriptions/increment (called after successful payment)
+
+POST /admin/metrics/active-subscriptions (admin override)
+
+GET /admin/metrics/audit-log
+
+Edge-cases & ethical suggestion
+
+Keep increments small and plausible to avoid obvious manipulation (e.g., +0..3 daily).
+
+Add the small sub-text / tooltip: “Approximate numbers updated in real-time” so users are not misled and you reduce risk of terms-of-service issues with platforms. This balances persuasion and honesty.
+
+Avoid showing fabricated user identities or exact timestamps tied to fake actions.
+
+UX copy example to paste into the builder (exact text)
+
+Display title: Join the Fancy Feathers community
+
+Card 1:
+
+Big number: 12
+
+Label: Active users right now
+
+Subtext / tooltip: Approximate numbers updated in real-time.
+
+Card 2:
+
+Big number: 127
+
+Label: Active subscriptions
+
+Subtext: Growing every day — join now
+
+When the user completes subscription: animate counter 127 → 128 and show toast: Thanks! Your subscription is active — community count updated.

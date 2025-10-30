@@ -1,0 +1,176 @@
+I want you to extend the existing website (which already has subscription plans, discount coupons, and the admin dashboard) with the following new functionality:
+
+USER ACCOUNT CREATION AND LOGIN SYSTEM (AFTER SUBSCRIPTION)
+
+Once a user completes a subscription, prompt the user to create an account.
+
+User Account Creation Flow:
+
+The User ID should be automatically set as the phone number the user entered while filling the subscription form.
+
+This field should be non-editable and validated to ensure it matches the phone number used during subscription.
+
+The user will be asked to create a password and confirm password.
+
+Password requirements: Minimum 8 characters, at least one capital letter, one number, and one special character.
+
+Add a “Show/Hide Password” toggle.
+
+Validate both passwords match before submission.
+
+Once the account is successfully created, show this message:
+✅ “Your account has been created successfully. You can now log in using your phone number and password.”
+
+USER LOGIN FLOW
+
+Create a Login Page with the following fields:
+
+User ID (Phone Number)
+
+Password
+
+Validate credentials.
+
+If incorrect, show error message: ❌ “Invalid user ID or password.”
+
+On successful login, redirect the user to their User Dashboard.
+
+USER DASHBOARD
+
+After login, show the user all their subscription details and bird-related data.
+
+Dashboard sections:
+
+1. Subscription Overview
+
+Subscription Plan (Monthly / 6 Months / Annual)
+
+Subscription Start Date
+
+Subscription End Date
+
+Amount Paid (final after discount)
+
+Coupon Code (if used)
+
+Discount %
+
+Consultations Remaining
+
+Subscription Status (Active / Expired / Consultations Exhausted)
+
+If consultations are finished (0 remaining), display a message:
+⚠️ “You have used all your consultations for this plan. Please purchase a top-up plan to continue.”
+
+2. Bird Details Section
+
+Allow the user to provide more information about their bird.
+
+Fields:
+
+Bird Name
+
+Species (e.g., Macaw, Conure, Cockatoo, etc.)
+
+Ring ID
+
+Weight (in grams)
+
+Age (in months or years)
+
+Issues / Symptoms (multi-line text box)
+
+Buttons:
+
+Save Bird Details → shows message “Your bird’s details have been saved successfully.”
+
+Edit Bird Details → allows user to update anytime.
+
+Add Another Bird → supports multiple birds if user owns more than one.
+
+3. Consultation Summary
+
+Display total consultations available vs. used vs. remaining.
+
+Show visual progress (e.g., progress bar or percentage).
+
+Example:
+
+Plan: 6 Months
+Total Consultations: 18
+Used: 3
+Remaining: 15
+
+ADMIN SYNCHRONIZATION
+
+All user details, including bird data, should automatically appear in the Admin Dashboard under the same user profile.
+
+When admin opens any user’s record, they should see:
+
+User Name
+
+Mobile Number
+
+Subscription Plan
+
+Start & End Dates
+
+Amount Paid (Original + Final)
+
+Coupon Used
+
+Consultations Remaining
+
+Bird Details:
+
+Bird Name
+
+Species
+
+Ring ID
+
+Weight
+
+Age
+
+Symptoms / Issues
+
+✅ Admin should be able to update or correct bird details if needed.
+✅ Any admin updates should automatically reflect in the user’s dashboard.
+
+FUNCTIONAL NOTES
+
+Passwords must be securely hashed, not stored in plain text.
+
+After successful registration, optionally auto-login the user.
+
+Real-time data sync between User Dashboard and Admin Panel.
+
+If consultations reach 0, status automatically changes to “Consultations Exhausted.”
+
+Admin should see this flag clearly and have the option to offer a “Top-Up Plan” (to be added later).
+
+UX DETAILS
+
+✅ After subscription → Prompt “Create your account.”
+✅ User creates password → success message and login enabled.
+✅ User logs in → sees:
+
+Subscription info
+
+Consultations left
+
+Bird details section
+✅ Admin dashboard always in sync with user updates.
+
+SECURITY AND VALIDATION
+
+Ensure phone number validation (10 digits, matches subscription).
+
+Require strong passwords with validation hints.
+
+Enforce HTTPS and encrypted communication.
+
+Add rate limiting on login to prevent brute-force attacks.
+
+Prevent unauthorized data access (user sees only their own data).

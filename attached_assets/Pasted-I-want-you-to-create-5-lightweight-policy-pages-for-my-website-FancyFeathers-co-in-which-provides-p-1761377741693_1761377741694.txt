@@ -1,0 +1,123 @@
+I want you to create 5 lightweight policy pages for my website FancyFeathers.co.in, which provides pet care subscriptions and online consultation services for exotic birds.
+We do not sell live animals — we only offer services, subscriptions, and avian care advice.
+Please create the following pages with clean formatting and SEO-friendly titles:
+
+🟩 1. Terms and Conditions
+
+Title: Terms and Conditions – Fancy Feathers India
+
+Content:
+Welcome to Fancy Feathers India. By using our website and services, you agree to comply with the following Terms and Conditions.
+
+Nature of Service:
+Fancy Feathers India offers subscription-based bird health and care consultation services. We do not sell or trade live birds.
+
+Subscriptions:
+All subscription plans are meant for virtual consultations, expert advice, and guidance on exotic bird care and wellbeing.
+
+Payments:
+Payments for subscriptions and services are processed securely through our payment partners.
+
+User Responsibilities:
+Users are responsible for providing accurate information about their pets to help our experts offer the best advice.
+
+Disclaimer:
+Fancy Feathers India does not replace physical veterinary treatment in emergencies. All advice is provided based on the details shared by the user.
+
+Changes to Terms:
+We reserve the right to modify these terms at any time. Updated terms will be available on this page.
+
+🟩 2. Cancellation & Refund Policy
+
+Title: Cancellation & Refund Policy – Fancy Feathers India
+
+Content:
+At Fancy Feathers India, we strive to provide the best possible service.
+However, since we deal in digital and consultation-based services, our refund and cancellation policy is as follows:
+
+Consultation Subscriptions:
+Once a subscription is activated and consultation slots are scheduled, payments are non-refundable.
+
+Cancellations Before Activation:
+If you wish to cancel a subscription before your first consultation is scheduled, you may request a cancellation within 24 hours of payment.
+
+Refund Approval:
+Approved refunds (if applicable) will be processed to the original payment method within 7-10 business days.
+
+Contact for Support:
+For refund or cancellation requests, email us at support@fancyfeathers.co.in
+ or WhatsApp us at +91 9014284059.
+
+🟩 3. Shipping Policy
+
+Title: Shipping Policy – Fancy Feathers India
+
+Content:
+We do not ship or sell any physical products or live birds.
+All our offerings, including consultation and subscription services, are digital and accessible online.
+Therefore, no shipping or delivery applies to our services.
+
+If in the future any digital reports or certificates are shared, they will be delivered electronically via email or WhatsApp.
+
+🟩 4. Privacy Policy
+
+Title: Privacy Policy – Fancy Feathers India
+
+Content:
+Fancy Feathers India values your privacy. This Privacy Policy explains how we collect and use your personal data.
+
+Information We Collect:
+We collect your name, contact number, and pet details when you subscribe or request a consultation.
+
+Use of Information:
+The information is used only for providing consultation services and managing your subscription.
+
+Data Protection:
+Your data is stored securely and never sold or shared with third parties.
+
+Third-Party Integrations:
+We use secure third-party payment gateways (e.g., Razorpay) to process payments. These providers may collect limited data as per their own privacy policies.
+
+Your Rights:
+You can contact us anytime to update or delete your personal data.
+
+Contact:
+For privacy-related inquiries, reach out at support@fancyfeathers.co.in
+.
+
+🟩 5. Contact Us
+
+Title: Contact Us – Fancy Feathers India
+
+Content:
+We’re happy to help you with any questions about your subscription or services.
+
+Contact Details:
+📧 Email: ali@fancyfeathers.co.in
+
+📞 WhatsApp: +91 9014284059
+🌐 Website: https://fancyfeathers.co.in
+
+📍 Location: Hyderabad, India
+
+Business Hours:
+Monday – Saturday, 10:00 AM – 7:00 PM
+
+✅ Instructions for Builder:
+
+Create individual, publicly accessible pages for each of the above.
+
+Add footer links on all pages titled:
+“Terms and Conditions”, “Privacy Policy”, “Cancellation & Refund”, “Shipping Policy”, “Contact Us”.
+
+Ensure each page returns a valid public URL like:
+
+https://fancyfeathers.co.in/terms-and-conditions
+
+https://fancyfeathers.co.in/cancellation-refund
+
+https://fancyfeathers.co.in/privacy-policy
+
+https://fancyfeathers.co.in/shipping-policy
+
+https://fancyfeathers.co.in/contact-us

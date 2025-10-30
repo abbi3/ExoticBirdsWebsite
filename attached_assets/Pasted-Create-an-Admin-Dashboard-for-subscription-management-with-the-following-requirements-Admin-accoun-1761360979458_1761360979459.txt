@@ -1,0 +1,87 @@
+Create an Admin Dashboard for subscription management with the following requirements:
+
+Admin account (seed user)
+
+Email: huzefafw@gmail.com
+
+Password: Huzi@123
+
+Admin page features / UI
+
+Login page
+
+Admin can sign in with the seed credentials above.
+
+Show clear error messages for invalid credentials.
+
+Subscriptions list (main view)
+
+Display a searchable, paginated table with these columns:
+
+Subscriber Name
+
+Mobile Number
+
+Subscription Plan (Monthly / 6 Months / Annual)
+
+Subscription Start Date
+
+Subscription End Date
+
+Amount Paid
+
+Bird(s) Owned (text)
+
+Consultations Remaining (numeric)
+
+Status (Active / Expired / Consultations Exhausted)
+
+Actions (View, Edit, Update Consultations)
+
+Allow sorting by name, start date, end date, amount paid.
+
+Include a quick filter for Plan type and Status.
+
+View / Edit subscription modal
+
+Clicking View opens a read-only details modal with all fields.
+
+Clicking Edit opens a form to update name, mobile, start/end dates, birds, amount paid and plan type.
+
+Validation for phone format and dates.
+
+Update Consultations
+
+Provide a one-click control in the Actions column: Update Consultations.
+
+When admin opens it, show three buttons/options to set the consultations remaining based on plan:
+
+Monthly → 2 consultations
+
+6 Months → 18 consultations
+
+Annual → 48 consultations
+
+If admin selects an option, set (or reset) the Consultations Remaining to that number.
+
+Allow a manual override numeric input for exceptional cases (with confirmation).
+
+Consultation usage tracking & auto-flag
+
+The dashboard must allow decrementing Consultations Remaining when a consultation is used (either via an admin button or an automated count if integrated later).
+
+When Consultations Remaining reaches 0, set Status to Consultations Exhausted and visually highlight the row (e.g., red badge).
+
+When consultations are exhausted, surface a clear label and show an action/button: Offer Top-up (top-up purchase flow / UI will be implemented later).
+
+(User notification feature will be implemented later — for now only show the flag and top-up action in admin UI.)
+
+Other admin actions
+
+Ability to create a new subscription record manually.
+
+Ability to delete (soft delete) a subscription.
+
+Export selected subscriptions to CSV.
+
+Basic audit log (who updated consultations and timestamp).

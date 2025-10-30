@@ -1,0 +1,115 @@
+Seed entries (short sample content for the birds you asked — paste these into your seed JSON):
+
+Blue-and-Gold Macaw (Blue gold mavaw)
+
+behaviour: Highly social, loud, intelligent; needs lots of interaction and toys.
+
+diet: Pellets, fruits (mango, papaya), nuts, occasional vegetables.
+
+human_compatibility: Affectionate but demanding; good with experienced owners.
+
+price_in_india: ₹80,000 - ₹2,00,000 (estimated; editable)
+
+Green-winged Macaw
+
+behaviour: Large, calmer than some macaws but still needs space and stimulation.
+
+diet: Pellets, fruit, nuts, vegetables.
+
+human_compatibility: Loyal and affectionate; needs consistent handling.
+
+price_in_india: ₹1,00,000 - ₹3,00,000 (estimated)
+
+Harlequin Macaw (hybrid)
+
+behaviour: Hybrid vigor — playful and active, high social needs.
+
+diet: Same as macaws; high-quality pellets + fresh produce.
+
+human_compatibility: Friendly but needs training and enrichment.
+
+price_in_india: ₹2,00,000 - ₹5,00,000 (hybrid prices vary widely)
+
+Umbrella Cockatoo
+
+behaviour: Very affectionate, attention-seeking, can be loud and destructive if bored.
+
+diet: Pellets, fruits, seeds; needs protein.
+
+human_compatibility: Loves people but requires constant attention; not ideal for busy households.
+
+price_in_india: ₹1,20,000 - ₹3,00,000 (estimated)
+
+Moluccan (Moluccan / Salmon-crested) Cockatoo (Moulaccan cocatoo)
+
+behaviour: Extremely social and demanding; may show separation anxiety.
+
+diet: Pellets, fruits, nuts; watch for obesity.
+
+human_compatibility: Needs dedicated owner; can bond intensely.
+
+price_in_india: ₹1,50,000 - ₹4,00,000 (estimated)
+
+African Grey Parrot
+
+behaviour: Highly intelligent, excellent talker, needs mental stimulation.
+
+diet: Pellets, fruits, leafy greens, occasional nuts.
+
+human_compatibility: Very bonded with routines; needs experienced owner.
+
+price_in_india: ₹1,00,000 - ₹3,00,000 (estimated)
+
+Amazon Parrot (family: multiple species — list common ones like Blue-fronted Amazon)
+
+behaviour: Playful, vocal, good mimics.
+
+diet: Pellets, fruits, vegetables.
+
+human_compatibility: Great companions if socialized; can be territorial during breeding seasons.
+
+price_in_india: ₹60,000 - ₹2,50,000 (estimated)
+
+Functional requirements
+
+Search and filter birds by size, noise, price range, and human suitability.
+
+Each bird page must list: behavior, diet, pros/cons as a pet, price range (India) and source/note, legal/CITES note, and care checklist.
+
+Option to download a printable PDF of a bird profile (client-side PDF generation).
+
+Simple admin page to update price_in_india and last_updated (no heavy auth required for MVP).
+
+UI/UX
+
+Clean card-style grid, large hero images on profile pages.
+
+Use readable fonts, high-contrast color scheme, and card hover states.
+
+On mobile, stack content vertically; on desktop show image + content side-by-side.
+
+Show “Estimated price” with an info tooltip explaining price variability in India and legal requirements.
+
+SEO & legal
+
+Add meta tags for each bird page: title, description (short behavior + price mention).
+
+Prominently show a legal notice: “This site is informational only. Check local laws (CITES / Wildlife Protection Act) and work with licensed breeders/shelters.”
+
+Developer notes / instructions to Replit
+
+Include README.md with instructions to run: npm install, npm run dev.
+
+Provide seed birds.json in /data and a small script to reload/save edits (for admin).
+
+Add a TODO comment where a real pricing API or regional marketplace integration can plug in.
+
+Add sample unit tests for components (optional).
+
+Deliverables
+
+Full React project with Tailwind, sample birds.json pre-filled with the 7 birds above, and working routes.
+
+A short seed dataset (JSON) and sample images (or placeholders).
+
+Clear README with how to change prices and update last_updated timestamps.
