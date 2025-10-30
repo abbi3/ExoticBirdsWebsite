@@ -215,10 +215,8 @@ Create a `.env` file for local development:
 SESSION_SECRET=your-secret-key-here
 ```
 
-## Legal & Compliance
 
 **Important**: This website is for informational purposes only. Users must:
-
 - Check local laws regarding exotic pet ownership
 - Understand CITES regulations
 - Comply with India's Wildlife Protection Act, 1972
@@ -226,8 +224,7 @@ SESSION_SECRET=your-secret-key-here
 - Obtain all necessary permits
 
 ## License
-
-[Your License Here]
+No
 
 ## Contributing
 
@@ -240,7 +237,7 @@ Contributions are welcome! Please:
 
 ## Support
 
-For questions or issues, please open an issue on GitHub or contact [your-email@example.com]
+For questions or issues, please open an issue on GitHub or contact abbyjamali@gmail.com
 
 ---
 
